@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # sipku
 <<<<<<< HEAD
 sistem informasi transaksi keuangan
@@ -19,6 +18,3 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 >>>>>>> a7748b2... pertama
-=======
-# sipku
->>>>>>> 45aaa167a8d60b7ecbe7b3d29d34860313905c5d
