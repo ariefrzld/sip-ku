@@ -1,109 +1,118 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class TransaksiNew extends StatelessWidget {
+class TransaksiNew extends StatefulWidget {
   final double opacity;
   final Function done;
 
-  const TransaksiNew({Key key, this.opacity, this.done}) : super(key: key);
+  TransaksiNew({Key key, this.opacity, this.done}) : super(key: key);
+
+  @override
+  _TransaksiNewState createState() => _TransaksiNewState();
+}
+
+class _TransaksiNewState extends State<TransaksiNew> {
+  int selectedRadioTile;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedRadioTile = 0;
+  }
+
+  setSelectedRadioTile(int val) {
+    setState(() {
+      selectedRadioTile = val;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final primaryColor = Theme.of(context).primaryColor;
 
     return Expanded(
       child: AnimatedContainer(
-        duration: Duration(seconds: 1),
-        curve: Curves.fastOutSlowIn,
-        width: double.infinity,
-        padding: const EdgeInsets.all(40),
-        color: Colors.white.withOpacity(opacity),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
-            TextFormField(
-              readOnly: false,
-              initialValue: 'Masukkan Transaksi',
-              style: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
+          duration: Duration(seconds: 1),
+          curve: Curves.fastOutSlowIn,
+          width: double.infinity,
+          padding: const EdgeInsets.only(left: 40, right: 40),
+          color: Colors.white.withOpacity(widget.opacity),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: <Widget>[
+              Column(
+                children: [
+                  RadioListTile(
+                    value: 1,
+                    groupValue: selectedRadioTile,
+                    title: Text('Pemasukan'),
+                    onChanged: (val) {
+                      setSelectedRadioTile(val);
+                    },
+                    activeColor: Colors.blue,
+                  ),
+                  RadioListTile(
+                    value: 2,
+                    groupValue: selectedRadioTile,
+                    title: Text('Pengeluaran'),
+                    onChanged: (val) {
+                      setSelectedRadioTile(val);
+                    },
+                    activeColor: Colors.blue,
+                  ),
+                ],
               ),
-              decoration: const InputDecoration(
-                  isDense: true,
-                  labelText: 'Title',
-                  border: OutlineInputBorder(),
-                  contentPadding: EdgeInsets.all(12)),
-            ),
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: TextFormField(
-                    readOnly: false,
-                    initialValue: '12',
+              Column(
+                children: <Widget>[
+                  TextField(
                     style: const TextStyle(
-                        fontSize: 14, fontWeight: FontWeight.bold),
+                        fontSize: 14, fontWeight: FontWeight.w500),
                     decoration: const InputDecoration(
                         isDense: true,
-                        icon: Icon(Icons.attach_money),
-                        contentPadding: const EdgeInsets.all(8)),
+                        contentPadding: const EdgeInsets.all(8),
+                        hintText: 'Kategori'),
                   ),
-                ),
-                const SizedBox(width: 20),
-                Expanded(
-                  child: TextFormField(
-                    readOnly: true,
-                    initialValue: 'Bussiness',
+                  SizedBox(height: 15.0),
+                  TextField(
                     style: const TextStyle(
-                        fontSize: 14, fontWeight: FontWeight.bold),
+                        fontSize: 14, fontWeight: FontWeight.w500),
                     decoration: const InputDecoration(
                         isDense: true,
-                        icon: Icon(Icons.work),
-                        contentPadding: const EdgeInsets.all(8)),
+                        contentPadding: const EdgeInsets.all(8),
+                        hintText: 'Catatan/Keterangan'),
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                OutlineButton.icon(
-                  borderSide: const BorderSide(width: 1, color: Colors.black),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  onPressed: () {},
-                  icon: Icon(Icons.today),
-                  label: Text(
-                    DateFormat('MMMM dd, yyyy').format(DateTime.now()),
+                  SizedBox(height: 15.0),
+                  TextField(
                     style: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.w500),
+                    decoration: const InputDecoration(
+                        isDense: true,
+                        contentPadding: const EdgeInsets.all(8),
+                        hintText: 'Nominal'),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+              RaisedButton.icon(
+                color: primaryColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                onPressed: widget.done,
+                icon: const Icon(
+                  Icons.add,
+                  color: Colors.white,
+                ),
+                label: Text(
+                  'Simpan',
+                  style: TextStyle(
                       fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
                 ),
-                RaisedButton.icon(
-                  color: primaryColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  onPressed: done,
-                  icon: const Icon(
-                    Icons.add,
-                    color: Colors.white,
-                  ),
-                  label: Text(
-                    'ADD',
-                    style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  ),
-                )
-              ],
-            )
-          ],
-        ),
-      ),
+              )
+            ],
+          )),
     );
   }
 }

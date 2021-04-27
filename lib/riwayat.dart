@@ -22,7 +22,7 @@ class Riwayats with ChangeNotifier {
     Riwayat(
       id: 1,
       title: 'Transfer',
-      value: 2000.0,
+      value: 200.0,
       kategori: 'Transfer',
       iconData: Icons.attach_money,
       color: Color(0xffe850b),
@@ -30,7 +30,7 @@ class Riwayats with ChangeNotifier {
     Riwayat(
       id: 2,
       title: 'Tarik Tunai',
-      value: 2000.0,
+      value: 300.0,
       kategori: 'Tarik Tunai',
       iconData: Icons.money_sharp,
       color: Color(0xffe850b),

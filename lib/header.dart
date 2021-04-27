@@ -1,26 +1,9 @@
-import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 import 'package:sipku/chart.dart';
-import 'package:sipku/expense.dart';
-import 'package:sipku/riwayat_card.dart';
 
 class Header extends StatelessWidget {
   final Function tambahTransaksi;
   const Header(this.tambahTransaksi);
-  static List<charts.Series<Expense, String>> _series = [
-    charts.Series<Expense, String>(
-      id: 'Expense',
-      domainFn: (Expense expense, _) => expense.kategori,
-      measureFn: (Expense expense, _) => expense.value,
-      labelAccessorFn: (Expense expense, _) => '\$${expense.value}',
-      colorFn: (Expense expense, _) =>
-          charts.ColorUtil.fromDartColor(expense.color),
-      data: [
-        Expense('Transfer', 200.000, Color(0xfff6d743)),
-        Expense('Tarik Tunai', 300.000, Color(0xffe8505b)),
-      ],
-    ),
-  ];
   @override
   Widget build(BuildContext context) {
     final primaryColor = Theme.of(context).primaryColor;
@@ -33,14 +16,29 @@ class Header extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(12),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Container(
-              height: 150,
-              child: ExpenseChart(
-                _series,
-                animate: true,
-              ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: 20.0),
+                Text(
+                  'Saldo',
+                  style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white),
+                ),
+                SizedBox(height: 5.0),
+                Text(
+                  'Rp. 3.704.000,-',
+                  style: TextStyle(
+                      fontSize: 50,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white),
+                ),
+                SizedBox(height: 60.0),
+              ],
             ),
             const SizedBox(height: 14),
             Row(
@@ -104,16 +102,21 @@ class Header extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16),
-            Padding(
-              padding: const EdgeInsets.only(left: 12),
-              child: const Text(
-                'Transaksi',
-                style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                    fontFamily: 'Khang',
-                    fontWeight: FontWeight.bold),
-              ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 12),
+                  child: const Text(
+                    'Transaksi',
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontFamily: 'Khang',
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
