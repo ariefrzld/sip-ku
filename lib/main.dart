@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sipku/home.dart';
-import 'package:sipku/splash.dart';
+import 'package:sipku/page/home/home.dart';
+import 'package:sipku/page/splash/splash.dart';
 
 void main() {
   runApp(Home());

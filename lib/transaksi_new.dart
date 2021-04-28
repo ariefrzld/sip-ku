@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class TransaksiNew extends StatefulWidget {
   final double opacity;
@@ -35,33 +34,42 @@ class _TransaksiNewState extends State<TransaksiNew> {
           duration: Duration(seconds: 1),
           curve: Curves.fastOutSlowIn,
           width: double.infinity,
-          padding: const EdgeInsets.only(left: 40, right: 40),
+          padding: const EdgeInsets.only(left: 30, right: 40),
           color: Colors.white.withOpacity(widget.opacity),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
-              Column(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  RadioListTile(
-                    value: 1,
-                    groupValue: selectedRadioTile,
-                    title: Text('Pemasukan'),
-                    onChanged: (val) {
-                      setSelectedRadioTile(val);
-                    },
-                    activeColor: Colors.blue,
+                  Row(
+                    children: [
+                      Radio(
+                        value: 1,
+                        groupValue: selectedRadioTile,
+                        onChanged: (val) {
+                          setSelectedRadioTile(val);
+                        },
+                        activeColor: Colors.blue,
+                      ),
+                      Text('Pemasukan'),
+                    ],
                   ),
-                  RadioListTile(
-                    value: 2,
-                    groupValue: selectedRadioTile,
-                    title: Text('Pengeluaran'),
-                    onChanged: (val) {
-                      setSelectedRadioTile(val);
-                    },
-                    activeColor: Colors.blue,
+                  Row(
+                    children: [
+                      Radio(
+                        value: 2,
+                        groupValue: selectedRadioTile,
+                        onChanged: (val) {
+                          setSelectedRadioTile(val);
+                        },
+                        activeColor: Colors.blue,
+                      ),
+                      Text('Pengeluaran'),
+                    ],
                   ),
                 ],
               ),
+              SizedBox(height: 20.0),
               Column(
                 children: <Widget>[
                   TextField(
@@ -72,7 +80,7 @@ class _TransaksiNewState extends State<TransaksiNew> {
                         contentPadding: const EdgeInsets.all(8),
                         hintText: 'Kategori'),
                   ),
-                  SizedBox(height: 15.0),
+                  SizedBox(height: 30.0),
                   TextField(
                     style: const TextStyle(
                         fontSize: 14, fontWeight: FontWeight.w500),
@@ -81,7 +89,7 @@ class _TransaksiNewState extends State<TransaksiNew> {
                         contentPadding: const EdgeInsets.all(8),
                         hintText: 'Catatan/Keterangan'),
                   ),
-                  SizedBox(height: 15.0),
+                  SizedBox(height: 30.0),
                   TextField(
                     style: const TextStyle(
                         fontSize: 14, fontWeight: FontWeight.w500),

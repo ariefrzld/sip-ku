@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sipku/home.dart';
+import 'package:sipku/page/home/home.dart';
 import 'package:sipku/register.dart';
 
 class Login extends StatelessWidget {

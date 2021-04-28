@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'home_page.dart';
-import 'riwayat.dart';
+import '../riwayat/riwayat_model.dart';
 
 class Home extends StatelessWidget {
   static const Map<int, Color> colorMap = {

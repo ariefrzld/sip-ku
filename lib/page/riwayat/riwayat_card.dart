@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:sipku/riwayat.dart';
-import 'package:sipku/riwayat_item.dart';
+import 'package:sipku/page/riwayat/riwayat_model.dart';
+import 'package:sipku/page/riwayat/riwayat_item.dart';
 
 class Riwayat extends StatefulWidget {
   final double height;

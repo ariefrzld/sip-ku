@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:sipku/chart.dart';
 
-class Header extends StatelessWidget {
+class Header extends StatefulWidget {
   final Function tambahTransaksi;
-  const Header(this.tambahTransaksi);
+  final Function done;
+  const Header(this.tambahTransaksi, this.done);
+
+  @override
+  _HeaderState createState() => _HeaderState();
+}
+
+class _HeaderState extends State<Header> {
   @override
   Widget build(BuildContext context) {
     final primaryColor = Theme.of(context).primaryColor;
@@ -45,7 +51,7 @@ class Header extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 OutlineButton(
-                  onPressed: tambahTransaksi,
+                  onPressed: widget.tambahTransaksi,
                   borderSide: const BorderSide(
                     width: 1,
                     color: Colors.white,
@@ -75,7 +81,7 @@ class Header extends StatelessWidget {
                   ),
                 ),
                 FlatButton(
-                  onPressed: () {},
+                  onPressed: widget.done,
                   color: Colors.white,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(24)),

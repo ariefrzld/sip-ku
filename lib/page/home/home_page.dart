@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sipku/header.dart';
-import 'package:sipku/riwayat_card.dart';
+import 'package:sipku/page/riwayat/riwayat_card.dart';
 import 'package:sipku/transaksi_new.dart';
 
 class HomePage extends StatefulWidget {
@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           Column(
             children: <Widget>[
-              Header(_tambahTransaksi),
+              Header(this._tambahTransaksi, this._done),
               TransaksiNew(opacity: _opacity, done: _done),
             ],
           ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sipku/riwayat.dart';
+import 'package:sipku/page/riwayat/riwayat_model.dart';
 
 class RiwayatItem extends StatelessWidget {
   final Riwayat riwayat;
