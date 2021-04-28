@@ -34,9 +34,10 @@ class _TransaksiNewState extends State<TransaksiNew> {
           duration: Duration(seconds: 1),
           curve: Curves.fastOutSlowIn,
           width: double.infinity,
-          padding: const EdgeInsets.only(left: 30, right: 40),
+          padding: const EdgeInsets.only(left: 20, right: 40),
           color: Colors.white.withOpacity(widget.opacity),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -69,36 +70,40 @@ class _TransaksiNewState extends State<TransaksiNew> {
                   ),
                 ],
               ),
-              SizedBox(height: 20.0),
-              Column(
+              SizedBox(height: 10.0),
+              Row(
                 children: <Widget>[
-                  TextField(
-                    style: const TextStyle(
-                        fontSize: 14, fontWeight: FontWeight.w500),
-                    decoration: const InputDecoration(
-                        isDense: true,
-                        contentPadding: const EdgeInsets.all(8),
-                        hintText: 'Kategori'),
+                  Expanded(
+                    child: TextFormField(
+                      style: const TextStyle(
+                          fontSize: 14, fontWeight: FontWeight.w500),
+                      decoration: const InputDecoration(
+                          isDense: true,
+                          contentPadding: const EdgeInsets.all(8),
+                          hintText: 'Kategori'),
+                    ),
                   ),
-                  SizedBox(height: 30.0),
-                  TextField(
-                    style: const TextStyle(
-                        fontSize: 14, fontWeight: FontWeight.w500),
-                    decoration: const InputDecoration(
-                        isDense: true,
-                        contentPadding: const EdgeInsets.all(8),
-                        hintText: 'Catatan/Keterangan'),
-                  ),
-                  SizedBox(height: 30.0),
-                  TextField(
-                    style: const TextStyle(
-                        fontSize: 14, fontWeight: FontWeight.w500),
-                    decoration: const InputDecoration(
-                        isDense: true,
-                        contentPadding: const EdgeInsets.all(8),
-                        hintText: 'Nominal'),
+                  SizedBox(width: 20.0),
+                  Expanded(
+                    child: TextFormField(
+                      style: const TextStyle(
+                          fontSize: 14, fontWeight: FontWeight.w500),
+                      decoration: const InputDecoration(
+                          isDense: true,
+                          contentPadding: const EdgeInsets.all(8),
+                          hintText: 'Nominal'),
+                    ),
                   ),
                 ],
+              ),
+              SizedBox(height: 20.0),
+              TextField(
+                style:
+                    const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                decoration: const InputDecoration(
+                    isDense: true,
+                    contentPadding: const EdgeInsets.all(8),
+                    hintText: 'Catatan / Keterangan'),
               ),
               const SizedBox(height: 20),
               RaisedButton.icon(

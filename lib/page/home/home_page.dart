@@ -32,10 +32,6 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.short_text),
-          onPressed: () {},
-        ),
         centerTitle: true,
         title: const Text(
           'SIPKU',
