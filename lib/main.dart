@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:sipku/page/home/home.dart';
-import 'package:sipku/page/splash/splash.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:sipku/screen/initialpage.dart';
 
-void main() {
-  runApp(Home());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+main() {
+  initializeDateFormatting().then((_) {
+    runApp(MaterialApp(
+      home: InitialPage(),
       debugShowCheckedModeBanner: false,
-      title: "Splash",
-      home: Splash(),
-    );
-  }
+    ));
+  });
 }
